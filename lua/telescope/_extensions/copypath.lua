@@ -7,6 +7,7 @@ local action_state = require("telescope.actions.state")
 
 local function action(item)
 	vim.fn.setreg("+", item.value)
+	vim.notify("Copied " .. item.name .. " to clipboard")
 end
 
 local function search(opts)
@@ -14,13 +15,13 @@ local function search(opts)
 		separator = " ",
 		items = {
 			{ width = 40 },
-			{ width = 18 },
 			{ remaining = true },
 		},
 	})
 	local make_display = function(entry)
 		return displayer({
-			entry.name .. " " .. entry.value,
+			entry.name,
+			entry.value,
 		})
 	end
 	local choices = {
