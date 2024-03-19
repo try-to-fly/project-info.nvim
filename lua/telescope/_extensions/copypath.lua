@@ -11,6 +11,7 @@ local function action(item)
 end
 
 local function search(opts)
+	print(opts)
 	local displayer = entry_display.create({
 		separator = " ",
 		items = {
